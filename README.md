@@ -32,7 +32,7 @@ Logujemy się adresem uczelnianym.
 5. Klikamy *Create*
 
 ### Provisioning App Service
-W pasku wyszukiwania u góry wpisujemy hasło `web app`. Wybieramy usługę *Web App*
+W pasku wyszukiwania u góry wpisujemy hasło `web app`. Wybieramy usługę *Web App* z podsekcji Marketplace.
 <img width="2056" height="682" alt="Pasted image 20260109103907" src="https://github.com/user-attachments/assets/e6fa8e7e-d981-4be0-b47d-b59ebde6e3c5" />
 
 
@@ -132,7 +132,8 @@ Uzupełniamy formularz:
 4. *Admin login*
    </br>Możesz użyć dowolnej nazwy, aczkolwiek takie jak np. admin mogą sprawić problem przy deploymencie
 5. *Password*
-   </br>Użyj dowolnego hasła spełniającego warunki
+   </br>Użyj dowolnego hasła spełniającego warunki.
+   > Upewnij się, że hasło nie zawiera znaków specjalnych zastrzeżonych przez MySQL (np. @)
 6. *Workload Details*
    </br>Dev/Test
 
