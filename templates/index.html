@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Budżet domowy</title>
@@ -11,7 +11,8 @@
         border-collapse: collapse;
         width: 60%;
       }
-      th, td {
+      th,
+      td {
         border: 1px solid #ccc;
         padding: 8px;
       }
@@ -49,5 +50,28 @@
       <p>💸 Suma wydatków: {{ total_expense }} zł</p>
       <p>📊 Bilans: {{ balance }} zł</p>
     </div>
+
+    <form method="post" action="{{ url_for('export') }}" style="margin: 15px 0">
+      <label for="filename">Nazwa pliku CSV:</label>
+      <input
+        id="filename"
+        name="filename"
+        type="text"
+        placeholder="np. transakcje-styczen.csv"
+        style="margin: 0 10px; width: 240px"
+      />
+      <button type="submit">⬇️ Eksportuj do Blob (CSV)</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul style="padding-left: 18px">
+      {% for category, message in messages %}
+      <li style="color: {{ 'green' if category == 'success' else 'red' }};">
+        {{ message }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
   </body>
 </html>
