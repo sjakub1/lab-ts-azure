@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Budżet domowy</title>
+    <style>
+      body {
+        font-family: Arial;
+        margin: 30px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 60%;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+      .balance {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      a {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Śledzenie budżetu domowego</h1>
+
+    <a href="{{ url_for('add') }}">➕ Dodaj transakcję</a>
+
+    <table>
+      <tr>
+        <th>Typ</th>
+        <th>Opis</th>
+        <th>Kwota</th>
+      </tr>
+      {% for t in transactions %}
+      <tr>
+        <td>{{ 'Przychód' if t.type == 'income' else 'Wydatek' }}</td>
+        <td>{{ t.description }}</td>
+        <td>{{ t.amount }} zł</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div class="balance">
+      <p>💰 Suma przychodów: {{ total_income }} zł</p>
+      <p>💸 Suma wydatków: {{ total_expense }} zł</p>
+      <p>📊 Bilans: {{ balance }} zł</p>
+    </div>
+  </body>
+</html>
